@@ -8,8 +8,19 @@
         Title="SlowAnimationMinimalApp">
     <dialogHost:DialogHost CloseOnClickAway="True" Name="mDialogHost">
         <dialogHost:DialogHost.DialogContent>
-            <StackPanel Margin="75" Spacing="10">
-                <TextBlock>This is a modal dialog. Click out of it to dismiss</TextBlock>
+            <StackPanel Name="mPopupPanel">
+                <Border BorderThickness="0 0 0 1" BorderBrush="#DADADA">
+                    <DockPanel LastChildFill="False">
+                        <TextBlock DockPanel.Dock="Left" Margin="12" FontSize="15" FontWeight="DemiBold" VerticalAlignment="Center">Title</TextBlock>
+                        <Button DockPanel.Dock="Right" Margin="12" Name="mCloseButton">[x]</Button>
+                    </DockPanel>
+                </Border>
+                <StackPanel Margin="15" Spacing="10" HorizontalAlignment="Center">
+                    <TextBlock Margin="75" >This is a modal dialog. Click out of it to dismiss</TextBlock>
+                    <Button>Button 1</Button>
+                    <Button>Button 2</Button>
+                    <Button>Button 3</Button>
+                </StackPanel>
             </StackPanel>
         </dialogHost:DialogHost.DialogContent>
         <StackPanel Margin="10" Spacing="5" VerticalAlignment="Top" HorizontalAlignment="Center">

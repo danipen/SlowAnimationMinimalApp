@@ -1,13 +1,17 @@
 ﻿using System.Collections.Generic;
 using Avalonia;
+using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Controls.Primitives.PopupPositioning;
+using Avalonia.Media;
 
 namespace DialogHost {
     internal class DialogPopupPositioner : IPopupPositioner {
         private IManagedPopupPositionerPopup _popup;
 
-        public DialogPopupPositioner(IManagedPopupPositionerPopup popup) {
+        public DialogPopupPositioner(
+            IManagedPopupPositionerPopup popup)
+        {
             _popup = popup;
         }
 

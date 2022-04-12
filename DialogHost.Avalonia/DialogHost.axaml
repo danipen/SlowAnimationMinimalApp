@@ -22,9 +22,11 @@
     <Style Selector="dialogHost|DialogHost">
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="VerticalAlignment" Value="Stretch" />
-        <Setter Property="DialogMargin" Value="8" />
+        <Setter Property="DialogMargin" Value="0" />
         <Setter Property="OverlayBackground" Value="Black"></Setter>
-        <Setter Property="dialogHost:DialogHostStyle.CornerRadius" Value="2"></Setter>
+        <Setter Property="dialogHost:DialogHostStyle.CornerRadius" Value="4"></Setter>
+        <Setter Property="dialogHost:DialogHostStyle.BorderThickness" Value="1"></Setter>
+        <Setter Property="dialogHost:DialogHostStyle.BorderBrush" Value="#DADADA"></Setter>
         <Setter Property="Template">
             <ControlTemplate>
                 <Grid Name="DialogHostRoot" Focusable="False">
@@ -43,7 +45,7 @@
                             <Style Selector="Grid#PART_ContentCoverGrid:not(.notransitions)">
                                 <Setter Property="Transitions">
                                     <Transitions>
-                                        <DoubleTransition Property="Opacity" Easing="QuinticEaseOut" Duration="0:0:0.2" />
+                                        <DoubleTransition Property="Opacity" Duration="0:0:0.2"/>
                                     </Transitions>
                                 </Setter>
                             </Style>
@@ -55,8 +57,10 @@
         </Setter>
         <Setter Property="PopupTemplate">
             <ControlTemplate>
-                <VisualLayerManager IsPopup="True" Name="PART_DialogPopupRoot" ClipToBounds="False">
-                    <Border Name="PART_ContentBackground" 
+                <VisualLayerManager IsPopup="True" Name="PART_DialogPopupRoot1" ClipToBounds="False">
+                    <Border Name="PART_ContentBackground"
+                            BorderBrush="{Binding Path=(dialogHost:DialogHostStyle.BorderBrush), RelativeSource={RelativeSource FindAncestor, AncestorType=dialogHost:DialogHost}}"
+                            BorderThickness="{Binding Path=(dialogHost:DialogHostStyle.BorderThickness), RelativeSource={RelativeSource FindAncestor, AncestorType=dialogHost:DialogHost}}"
                             CornerRadius="{Binding Path=(dialogHost:DialogHostStyle.CornerRadius), RelativeSource={RelativeSource FindAncestor, AncestorType=dialogHost:DialogHost}}"
                             BoxShadow="1.5 1.5 8 #4c000000" ClipToBounds="False">
                         <ContentPresenter Name="PART_ContentPresenter"
